@@ -68,7 +68,11 @@
                                         @csrf
                                     </form>
 
-                                    <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                    @can('admin.dashboard')
+                                        <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                    @endcan
+
+                                    
                                 </div>
                             </li>
                         @endguest

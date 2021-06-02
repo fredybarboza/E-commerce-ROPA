@@ -21,4 +21,4 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/image', [App\Http\Controllers\ImageController::class, 'store']);
-Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index']);
+Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->middleware('can:admin.dashboard')->name('admin.dashboard');

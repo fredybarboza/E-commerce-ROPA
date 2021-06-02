@@ -239,16 +239,27 @@ return [
             'url'         => '/dashboard',
             'icon'        => 'far fa-fw fa-file',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'ADMINISTRACION'],
         [
             'text' => 'Usuarios',
             'url'  => '/dashboard/usuarios',
             'icon' => 'fas fa-fw fa-user',
+            'can'  => 'admin.users',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'Productos',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fab fa-product-hunt',
+            'submenu' => [
+                [
+                    'text' => 'Crear Nuevo',
+                    'url'  => '/dashboard/crear-producto',
+                ],
+                [
+                    'text' => 'Actualizar',
+                    'route'  => 'productos.index',
+                ],
+            ]
         ],
         [
             'text'    => 'multilevel',
@@ -288,7 +299,7 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
+        
         [
             'text'       => 'important',
             'icon_color' => 'red',

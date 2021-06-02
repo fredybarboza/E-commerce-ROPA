@@ -21,8 +21,14 @@ class RoleSeeder extends Seeder
 
         //Permission list
         Permission::create(['name' => 'admin.dashboard']);
+        Permission::create(['name' => 'admin.users']);
 
         $role1->givePermissionTo([
+            'admin.dashboard',
+            'admin.users',
+        ]);
+
+        $role2->givePermissionTo([
             'admin.dashboard',
         ]);
     }
