@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Producto;
 
 class ProductosController extends Controller
 {
@@ -35,7 +37,29 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'file' => 'required|image',
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'cantidad' => 'required',
+            'precio_compra' => 'required',
+            'precio_venta' => 'required'
+        ]);
+
+        $img = $request->file('file')->store('public');
+        $url = Storage::url($img);
+
+            Producto::create([
+                'nombre' => $request->nombre,
+                'descripcion' => $request->descripcion,
+                'cantidad_stock' => $request->cantidad,
+                'precio_compra' => $request->precio_compra,
+                'precio_venta' => $request->precio_venta,
+                'url_img' => $url
+            ]);
+
+        
+        
     }
 
     /**
