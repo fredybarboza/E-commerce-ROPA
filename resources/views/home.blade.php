@@ -1,41 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            
-            <h3>Cargar Imagen</h3>
-            <form action="/image" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-            <input type="file" name="file" accept="image/*">
-            @error('file')
-            <br>
-            <small class="text-danger">{{$message}}</small>
-            @enderror
-            </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            </form>
-            <hr>
-           @section('contenido')
-            <div class="container">
-            <div class="row">
-            <div class="col">
-            <div class="card-columns">
-            @foreach($files as $f)
-            <div class="card">
-            <img class="card-img-top" src="{{asset($f->url)}}">
-            
-            </div>
 
-            @endforeach
-            </div>
-            </div>
-            </div>
-            </div>
-            @endsection
-        </div>
-    </div>
-</div>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;"></div>
+<br>
+<img id="drag1" src="https://i.pinimg.com/originals/40/e3/e4/40e3e44bb71c1f6e945f60073418834c.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+
+    <script> 
+        function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+    </script>
 @endsection
+
+@section('js')
+    
+@stop
+
+

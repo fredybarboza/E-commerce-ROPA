@@ -17,26 +17,33 @@
         <label for="exampleInputEmail1">Descripcion</label>
         <textarea class="form-control" name="descripcion" ></textarea> 
     </div>
-    <div class="form-group">
+    <div class="row g-3">
+    <div class="Col" style="margin-right: 10px;">
         <label for="exampleInputEmail1">Cantidad Inicial</label>
         <input type="number" name="cantidad"  class="form-control"> 
     </div>
-    <div class="form-group">
+    <div class="form-group" style="margin-right: 10px;">
         <label for="exampleInputEmail1">Precio de compra</label>
         <input type="number" name="precio_compra"  class="form-control"> 
     </div>
-    <div class="form-group">
+    <div class="form-group" style="margin-right: 10px;">
         <label for="exampleInputEmail1">Precio de venta</label>
         <input type="number" name="precio_venta"  class="form-control"> 
     </div>
-    <div class="form-group">
+    </div>
+    <div class="row g-3">
+    <div class="form-group" style="margin-right: 10px;">
         <label for="exampleInputEmail1">Imagen del producto</label><br>
-        <input type="file" name="file" accept="image/*"><br>
+        <input type="file" name="file" id="file" accept="image/*"><br>
         @error('file')
             <small class="text-danger">{{$message}}</small>
         @enderror
     </div>
-    <button type="submit">Guardar</button>
+    <div class="card">
+        <img id="imagepreview" src="" alt="">
+    </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Guardar</button>
  </form>
 @stop
 
@@ -45,5 +52,23 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script> 
+
+    document.getElementById("file").addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event){
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById("imagepreview").setAttribute('src', event.target.result);
+            };
+
+            reader.readAsDataURL(file);
+            var img = document.getElementById('imagepreview');
+            img.style.height = '200px';
+            img.style.width = '250px';
+
+        }
+    </script>
 @stop
