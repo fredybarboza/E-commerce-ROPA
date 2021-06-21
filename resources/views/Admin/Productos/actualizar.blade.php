@@ -27,10 +27,15 @@
       <td>{{$p->cantidad_stock}}</td>
       <td>{{$p->precio_venta}}</td>
       <td>
+
+      <form action="{{route('productos.destroy',$p)}}" class="formulario-eliminar" method="POST">
       <div class="btn-group">
       <a class="btn btn-primary" href="{{route('productos.edit',$p)}}">Editar</a>
-      <button class="btn btn-danger">Eliminar</button>
+      @csrf
+      @method('DELETE')
+      <button type="submit" class="btn btn-danger">Eliminar</button>
       </div>
+      </form>
       </td>
     </tr>
     @endforeach
@@ -43,5 +48,36 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  @if (session('eliminar') == 'ok')
+  <script>
+    Swal.fire(
+    'Eliminado!',
+    'Su archivo se ha eliminado.',
+    'success'
+    )
+  </script>
+  @endif
+  
+  <script>
+  $('.formulario-eliminar').submit(function(e)
+  {
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Estas seguro?',
+      text: "No podras revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Si, Eliminar!'
+      }).then((result) => {
+      if (result.isConfirmed) {
+        this.submit();
+      }
+    })
+  });
+  </script>
+
 @stop

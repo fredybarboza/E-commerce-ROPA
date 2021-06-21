@@ -59,7 +59,7 @@ class ProductosController extends Controller
                 'url_img' => $url
             ]);
 
-        
+        return redirect('/dashboard/productos');
         
     }
 
@@ -96,7 +96,10 @@ class ProductosController extends Controller
     {
         
         $producto = Producto::find($id);
+        $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
+        $producto->cantidad_stock = $request->cantidad;
+        $producto->precio_venta = $request->precio_venta;
         $producto->save();
         return redirect('/dashboard/productos');
         
@@ -110,6 +113,10 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto = Producto::find($id);
+        $producto->delete();
+        return redirect('/dashboard/productos')->with('eliminar', 'ok');
     }
+
+
 }
