@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>Tienda</b>ONLINE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/Mi_Logo.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -65,10 +65,10 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-danger',
+    'usermenu_image' => true,
+    'usermenu_desc' => true,
     'usermenu_profile_url' => false,
 
     /*
@@ -226,8 +226,8 @@ return [
     'menu' => [
         [
             'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'search' => false,
+            'topnav' => false,
         ],
         [
             'text' => 'blog',
@@ -253,24 +253,26 @@ return [
             'submenu' => [
                 [
                     'text' => 'Crear Nuevo',
+                    'icon' => 'fab fa-product-hunt',
                     'url'  => '/dashboard/crear-producto',
                 ],
                 [
                     'text' => 'Actualizar',
+                    'icon' => 'fab fa-product-hunt',
                     'route'  => 'productos.index',
                 ],
             ]
         ],
         [
-            'text'    => 'multilevel',
+            'text'    => 'Niveles',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
+                    'text' => 'Nivel 1',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'level_one',
+                    'text'    => 'Nivel 2',
                     'url'     => '#',
                     'submenu' => [
                         [
@@ -286,7 +288,7 @@ return [
                                     'url'  => '#',
                                 ],
                                 [
-                                    'text' => 'level_three',
+                                    'text' => 'Nivel 3',
                                     'url'  => '#',
                                 ],
                             ],
@@ -294,7 +296,7 @@ return [
                     ],
                 ],
                 [
-                    'text' => 'level_one',
+                    'text' => 'Nivel 3',
                     'url'  => '#',
                 ],
             ],
@@ -306,13 +308,13 @@ return [
             'url'        => '#',
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
+            'text'       => 'Advertencia',
+            'icon_color' => 'warning',
             'url'        => '#',
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
+            'text'       => 'Información',
+            'icon_color' => 'success',
             'url'        => '#',
         ],
     ],

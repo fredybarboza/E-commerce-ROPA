@@ -43,6 +43,7 @@
         <img id="imagepreview" src="" alt="">
     </div>
     </div>
+    <a href="/dashboard/productos" class="btn btn-danger" tabindex="5">Cancelar</a>
     <button class="btn btn-primary" type="submit">Guardar</button>
  </form>
 @stop

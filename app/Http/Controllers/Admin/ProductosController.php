@@ -15,8 +15,9 @@ class ProductosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.productos.actualizar');
+    {   
+        $productos = Producto::all();
+        return view('admin.productos.actualizar', compact('productos'));
     }
 
     /**
@@ -58,7 +59,7 @@ class ProductosController extends Controller
                 'url_img' => $url
             ]);
 
-        
+        return redirect('/dashboard/productos');
         
     }
 
@@ -79,8 +80,9 @@ class ProductosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Producto $producto)
     {
+        return view('admin.productos.editar', compact('producto'));
     }
 
     /**
@@ -92,7 +94,15 @@ class ProductosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $producto = Producto::find($id);
+        $producto->nombre = $request->nombre;
+        $producto->descripcion = $request->descripcion;
+        $producto->cantidad_stock = $request->cantidad;
+        $producto->precio_venta = $request->precio_venta;
+        $producto->save();
+        return redirect('/dashboard/productos');
+        
     }
 
     /**
@@ -103,6 +113,10 @@ class ProductosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto = Producto::find($id);
+        $producto->delete();
+        return redirect('/dashboard/productos')->with('eliminar', 'ok');
     }
+
+
 }

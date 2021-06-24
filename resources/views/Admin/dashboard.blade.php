@@ -18,11 +18,11 @@
   </thead>
   <tbody>
     <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>a</td>
-      <td>a</td>
-      <td>a</td>
+      <td>17</td>
+      <td>Campera</td>
+      <td>2</td>
+      <td>Negro</td>
+      <td>Mediano</td>
       <!--<td>
       
       </td>-->
@@ -34,7 +34,7 @@
       Barrio: Santa Librada 
       </td>
       <td colspan="2">
-      Direccion: Atyuwe, ewidj 8329 <br>
+      Direccion: Mayor peralta/ Calle 8 <br>
       Celular: 0985 67 55 87
       </td>
       <td>
@@ -47,7 +47,7 @@
           
         </div>
         <hr>
-        <button class="btn btn-secondary">Guardar</button>
+        <button class="btn btn-primary" type="submit">Guardar</button>
         
         
       </td>
