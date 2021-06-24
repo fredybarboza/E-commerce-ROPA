@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\File;
+use App\Models\Producto;
 
 class HomeController extends Controller
 {
@@ -24,7 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $files = File::all();
-        return view('home', compact('files'));
+        $productos = Producto::all();
+        return view('home', compact('productos'));
+    }
+
+    public function show($id){
+        $producto = Producto::find($id);
+        return view('detalle', compact('producto'));
     }
 }

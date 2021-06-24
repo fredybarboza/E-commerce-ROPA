@@ -2,33 +2,26 @@
 
 @section('content')
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" style="width: 350px;
-  height: 70px;
-  padding: 10px;
-  border: 1px solid #aaaaaa;"></div>
-<br>
-<img id="drag1" src="https://i.pinimg.com/originals/40/e3/e4/40e3e44bb71c1f6e945f60073418834c.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69">
 
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card-columns">
+        @foreach($productos as $p)
+          <div class="card" style="padding: 5px;">
+            <a href="/view-product/{{$p->id}}"><img class="card-img-top" src="{{asset($p->url_img)}}" alt=""></a>
+            <a href="" style="color: gray;"><b>{{$p->nombre}} | {{$p->descripcion}} </b></a><br>
+            <a href="" style="color: black;"> <b>GS. {{$p->precio_venta}}</b> </a>
+          </div>
+        @endforeach
+      </div>
+    </div>
+  </div>
 
-    <script> 
-        function allowDrop(ev) {
-  ev.preventDefault();
-}
+</div>
 
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-}
-    </script>
 @endsection
 
-@section('js')
-    
-@stop
+
 
 

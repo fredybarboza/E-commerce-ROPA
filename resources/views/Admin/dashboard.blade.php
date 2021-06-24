@@ -4,7 +4,7 @@
 
 @section('content')
     <h3>Listado de Pedidos</h3>
-
+   
     <div>
     <table class="table">
   <thead class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
