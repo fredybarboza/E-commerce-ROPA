@@ -35,9 +35,11 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="{{ route('contactanos.index') }}" class="nav-link" >Contactanos</a>
+                            </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

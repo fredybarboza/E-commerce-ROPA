@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactanosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +22,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/image', [App\Http\Controllers\ImageController::class, 'store']);
+Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
+Route::post('contactanos', [ContactanosController::class, 'storecon'])->name('contactanos.store');
 Route::get('/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->middleware('can:admin.dashboard')->name('admin.dashboard');
 Route::get('/view-product/{id}', [App\Http\Controllers\HomeController::class, 'show']);
