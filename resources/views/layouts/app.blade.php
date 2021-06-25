@@ -77,8 +77,10 @@
                             </li>
                         @endguest
                     </ul>
-                    
-            <h3><i class="fas fa-cart-arrow-down"></i></h3><b>Carrito | <b  style="color: red;">0</b></b>
+               <a href="{{route('cart.index')}}">
+                <h3><i class="fas fa-cart-arrow-down"></i></h3><b>Carrito | <b  style="color: red;">0</b></b>
+               </a>     
+            
             
                 </div>
             </div>

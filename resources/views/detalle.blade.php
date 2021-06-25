@@ -7,28 +7,35 @@
         <img class="card-img-top" src="{{asset($producto->url_img)}}" alt="">
     </div>
     <div class="card" style="padding: 10px">
-        <h3 style="margin: 5px;"><b>{{$producto->nombre}}</b></h3>
+        <div>
+            <b style="font-size: 20px;">{{$producto->nombre}} | </b><button class="btn btn-dark"><i class="fas fa-cart-arrow-down">Add</i></button>
+        </div>
         <h5><small> <b style="color: gray"> {{$producto->descripcion}}</b> </small></h5>
         <hr>
-        <form action="">
+        <form action="/formulario-de-pago" method="GET">
+        @csrf
         <div class="form-group">
         
             <div class="input-group mb-3" style="width: 200px;">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Cantidad</span>
                 </div>
-                <input type="number" class="form-control" placeholder="" aria-label="">
+                <input type="number" name="cantidad" class="form-control" placeholder="" required>
             </div>
          
         </div>
         <button class="btn btn-danger" type="submit">Comprar</button>
-        <button class="btn btn-primary">Añadir alcarrito</button>
         </form>
+        
     </div>
 </div>
 
-<script>
-    
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11">
+    Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)
 </script>
 
 @endsection
