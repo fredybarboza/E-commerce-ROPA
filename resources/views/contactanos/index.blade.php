@@ -50,14 +50,14 @@
             </div>
             <div class="contact-info">
                 <div class="fonts">
-                    <h4>Mas Info</h4>
+                    <h4>Más Info</h4>
                     <ul>
                         <li><i class="fas fa-phone"></i>0972-689-342</li>
                         <li><i class="fas fa-envelope-open-text"></i> contact@ecommerce.com</li>
                     </ul>
-                    <p>Direccion:</p>
+                    <p>Dirección:</p>
                     <p>Coronel Bogado</p>
-                    <p>Itapua Paraguay</p>
+                    <p>Itapúa Paraguay</p>
                     <p><a href="">Ecommerce-ropa.com</a></p>
                 </div>
             </div>

@@ -21,7 +21,7 @@
             </div>
          
         </div>
-        <button class="btn btn-danger" type="submit">Comprar</button>
+        <a href=" {{route('tarjeta.index')}} " class="btn btn-danger" type="submit">Comprar</a>
         <button class="btn btn-primary">Añadir alcarrito</button>
         </form>
     </div>
