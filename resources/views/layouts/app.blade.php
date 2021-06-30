@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Tienda Oline') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,9 +35,14 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="{{ route('contactanos.index') }}" class="nav-link" >Contactanos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('pedidos.index')}}" class="nav-link" >Pedidos</a>
+                            </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -77,8 +82,8 @@
                             </li>
                         @endguest
                     </ul>
-               <a href="{{route('cart.index')}}">
-                <h3><i class="fas fa-cart-arrow-down"></i></h3><b>Carrito | <b  style="color: red;">0</b></b>
+               <a href="{{route('cart.index')}}" style="text-decoration: none;">
+                <h5><i class="fas fa-cart-arrow-down"></i><b>Carrito</b></h5>
                </a>     
             
             

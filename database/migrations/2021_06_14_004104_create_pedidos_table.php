@@ -17,7 +17,11 @@ class CreatePedidosTable extends Migration
             $table->id();
             $table->integer('id_usuario');
             $table->integer('total');
-            $table->boolean('entregado');
+            $table->boolean('entregado')->default(false);
+            $table->integer('estado')->default(0);//Carrito==0
+            $table->string('direccion')->nullable();
+            $table->string('barrio')->nullable();
+            $table->string('celular')->nullable();
             $table->timestamps();
         });
     }

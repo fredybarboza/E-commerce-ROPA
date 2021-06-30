@@ -3,58 +3,32 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h3>Listado de Pedidos</h3>
-   
-    <div>
+    <div class="container">
     <table class="table">
-  <thead class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+  <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">PRODUCTOS</th>
-      <th scope="col">CANTIDAD</th>
-      <th scope="col">COLOR</th>
-      <th scope="col">TALLA</th>
+      <th scope="col">ID USUARIO</th>
+      <th scope="col">TOTAL</th>
+      <th scope="col">FECHA</th>
+      <th scope="col">ACCIÓN</th>
     </tr>
   </thead>
   <tbody>
+   @foreach($pedidos as $p)
     <tr>
-      <td>17</td>
-      <td>Campera</td>
-      <td>2</td>
-      <td>Negro</td>
-      <td>Mediano</td>
-      <!--<td>
-      
-      </td>-->
+      <td>{{$p->id}}</td>
+      <td>{{$p->id_usuario}}</td>
+      <td>{{$p->total}}</td>
+      <td>{{$p->created_at}}</td>
+      <td><a href="/dashboard/pedidos/{{$p->id_usuario}}" class="btn btn-primary">Detalles</a></td>
     </tr>
-    <tr>
-      <th scope="row">Detalles</th>
-      <td>Departamento: Itapúa<br>
-      Ciudad: Coronel Bogado <br>
-      Barrio: Santa Librada 
-      </td>
-      <td colspan="2">
-      Direccion: Mayor peralta/ Calle 8 <br>
-      Celular: 0985 67 55 87
-      </td>
-      <td>
-      
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault">
-             Default checkbox
-          </label> 
-          
-        </div>
-        <hr>
-        <button class="btn btn-primary" type="submit">Guardar</button>
-        
-        
-      </td>
-      
+   @endforeach
     </tr>
   </tbody>
 </table>
-<hr>
 </div>
+   
+    
+
 @stop
